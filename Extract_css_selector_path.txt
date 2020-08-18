@@ -1,0 +1,98 @@
+--------------------------------------Login button for instagram------------------------------------------------
+- Inspect the login button on firefox or chrome browser
+- And copy it's CSS selector path from it.
+- See the first of all XPath of button login element:
+
+xpath:- /html/body/div[1]/section/main/div/article/div/div[1]/div/form/div[4]/button
+
+css Path:- html.js.not-logged-in.client-root.js-focus-visible.sDN5V body div#react-root section._9eogI.E3X2T main.SCxLW.o64aR div.tbpKJ article.agXmL div.rgFsT div.gr27e div.EPjEi form.HmktE div.Igw0E.IwRSH.eGOV_._4EzTm.bkEs3.CovQj.jKUp7.DhRcB button.sqdOP.L3NKy.y3zKF
+
+css selector:- .L3NKy
+
+But here we need path it's button div instead exact button
+
+CSS selector:- div.Igw0E:nth-child(4)
+
+Now from the above css selector we need extract the whole path of button element from css path of button
+
+bewlo is css path of button(split in three lines just to see whole path without horizontal scrolling):- 
+#react-root section._9eogI.E3X2T main.SCxLW.o64aR div.tbpKJ 
+ ---------  -------              ----             ---      
+# article.agXmL div.rgFsT div.gr27e div.EPjEi form.HmktE
+  -------       ---       ---       ---       ----
+# div.Igw0E.IwRSH.eGOV_._4EzTm.bkEs3.CovQj.jKUp7.DhRcB button.sqdOP.L3NKy.y3zKF
+  ---                                                  ------     
+Extracting the CSS selector path process
+- First we need to take only html element from css selector's like div, article etc.
+- In case div tag we need specify as ith div element ex. div:nth-child(n) where n >= 1
+- And to get such nth child we need see xpath of div tag.
+- Xpath css selector: section/main/div/article/div/div[1]/div/form/div[4]/button
+
+Final css selector that we using for button our code.
+#react-root > section > main > div > article > div > div:nth-child(1) > div > form > div:nth-child(4) > button
+
+----------------------------------------------------------------------------------------------------------
+-----------------------------NotNow and Saveinfo button After login immediatly----------------------------
+
+XPath: /html/body/div[1]/section/main/div/div/div/section/div/button
+CSS Path: html.js.logged-in.client-root.js-focus-visible.sDN5V body div
+      #react-root section._9eogI.E3X2T main.SCxLW.o64aR div.Igw0E.rBNOH.YBx95._4EzTm 
+      div.pV7Qt.DPiy6.Igw0E.IwRSH.eGOV_._4EzTm.qhGB0.ZUqME div.Igw0E.IwRSH.eGOV_._4EzTm.MGdpg.aGBdT 
+      section.ABCxa div.JErX0 button.sqdOP.L3NKy.y3zKF
+CSS selector: button.sqdOP:nth-child(4)
+
+CSS Path for button (Save Info) => #react-root > section > main > div > div > div > section > div > button.sqdOP:nth-child(4)
+
+ ==================Not Now button==================
+XPath: /html/body/div[1]/section/main/div/div/div/div/button
+CSS Path: html.js.logged-in.client-root.js-focus-visible.sDN5V body div
+          #react-root section._9eogI.E3X2T main.SCxLW.o64aR div.Igw0E.rBNOH.YBx95._4EzTm 
+          div.pV7Qt.DPiy6.Igw0E.IwRSH.eGOV_._4EzTm.qhGB0.ZUqME div.Igw0E.IwRSH.eGOV_._4EzTm.MGdpg.aGBdT 
+          div.cmbtv button.sqdOP.yWX7d.y3zKF
+CSS selector: button.sqdOP:nth-child(1)
+
+CSS Path for button (Not Now) => #react-root > section > main > div > div > div > div > button.sqdOP:nth-child(1)
+
+
+-------------------------------------------------------------------------------------------------------
+-------------------------------Notification button off and on------------------------------------------
+=========Turn on Notification=====
+XPath: /html/body/div[4]/div/div/div/div[3]/button[1]
+CSS Path: html.js.logged-in.client-root.js-focus-visible.sDN5V body 
+          div.RnEpo.Yx5HN div.pbNvD.fPMEg div._1XyCr div.piCib div.mt3GC button.aOOlW.bIiDR
+CSS selector: button.aOOlW:nth-child(1)
+
+CSS path for button (Turn On) => 
+body > div:nth-child(4) > div > div > div > div:nth-child(3) > button.aOOlW:nth-child(1)
+body > div:nth-child(4) > div > div > div > div:nth-child(3) > button:nth-child(1)
+body > div.RnEpo.Yx5HN > div > div > div > div.mt3GC > button.aOOlW.bIiDR  -working
+
+
+=======Turn off Notification======
+XPath: /html/body/div[4]/div/div/div/div[3]/button[2]
+CSS Path: html.js.logged-in.client-root.js-focus-visible.sDN5V body 
+        div.RnEpo.Yx5HN div.pbNvD.fPMEg div._1XyCr div.piCib div.mt3GC button.aOOlW.HoLwm
+CSS selector: button.aOOlW:nth-child(2)
+
+CSS path for button (Not Now) => 
+body > div:nth-child(4) > div > div > div > div:nth-child(3) > button.aOOlW:nth-child(2)
+body > div:nth-child(4) > div > div > div > div:nth-child(3) > button:nth-child(2)
+body > div:nth-child(4) > div > div > div > div:nth-child(3) > button.aOOlW.HoLwm
+body > div:nth-child(4) > div > div > div > div.mt3GC > button.aOOlW.HoLwm
+body > div:nth-child(4) > div > div > div > div.mt3GC > button
+body > div:nth-child(13) > div > div > div > div.mt3GC > button.aOOlW.HoLwm
+body > div.RnEpo.Yx5HN > div > div > div > div.mt3GC > button.aOOlW.HoLwm   -working
+
+
+
+-------------------------------------------------------------------------------------------------------
+-----------------------------Explore the tags explore/tags/#Hashtags-----------------------------------
+root id: [@id="react-root"]  => path == /html/body/div[1]
+
+XPath: /html/body/div[1]/section/main/article/div[1]/div/div/div[1]/div[1]/a
+final_XPath_used: [@id="react-root"]/section/main/article/div[1]/div/div/div[1]/div[1]/a/div
+
+========Get the username after click on hashtags Top posts===============
+XPath: /html/body/div[4]/div[2]/div/article/div/header/div[2]/div[1]/div[1]/span/a
+
+---------------------------------------------------------------------------------------------------------

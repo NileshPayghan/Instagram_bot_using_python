@@ -1,0 +1,30 @@
+---------------------------Description:-------------------------------------------------------------------
+- This program is used to extract the information automatically from instagram and Which could used to increase or decrease the follow list.
+- This program uses the selenium webdriver to automate tasks.
+- This is instagram bot or automation for instagram.
+- This is used to like and comment the post for particualar hashtags.
+- Which is also used to follow or unfollow the users on instagram.
+
+
+--------------------------Requirements and Psuedo code:------------------------------------------------------------------------------
+1. pip install selenium
+2. install chromedriver or firefox(geckodriver)
+    - download https://github.com/mozilla/geckodriver/releases
+    - extract it and add in /usr/local/bin and add in PATH variable
+    - $ export PATH=$PATH:/usr/local/bin/geckodriver
+    - then we can Firefox() using geckodriver.
+3. send username and password to browser and add into the instagram's username and password fields.
+4. login your account using login button by extracting it's path from CSS selectors. For more information
+ how path is extracted see "Extract_css_selector_path.txt" file in same directory.
+
+5. Then click on button to login to instagram
+    - if already login check it
+    - if not then it will login successfully and opens the browser
+
+
+
+--------------------------------Output:------------------------------------------------------------------------
+- follow or unfollow the users on instagram
+- like or comment on instagram
+- report of followed and unfollowed users
+- Use excel file to report the things to store reports.
